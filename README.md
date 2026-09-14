@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -455,7 +455,6 @@
 
     <!-- جافاسكريبت تفاعلية متطورة للمتحركات وحركة الماوس / اللمس -->
     <script>
-        // تشغيل وإيقاف القائمة الجانبية للهواتف
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
         const menuIcon = menuToggle.querySelector('i');
@@ -469,7 +468,6 @@
             }
         });
 
-        // إغلاق القائمة عند النقر على أي رابط في الهواتف
         document.querySelectorAll('nav ul li a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
@@ -477,7 +475,6 @@
             });
         });
 
-        // تأثير تفاعل حركة الماوس أو اللمس في الهاتف على القسم الرئيسي والخلفية
         const heroContent = document.getElementById('heroContent');
         const waveBg = document.getElementById('waveBg');
 
@@ -491,7 +488,6 @@
             mouseY = (e.clientY / window.innerHeight - 0.5) * 25;
         });
 
-        // دعم حركة اللمس على الهواتف والأجهزة اللوحية
         window.addEventListener('touchmove', (e) => {
             if (e.touches.length > 0) {
                 mouseX = (e.touches[0].clientX / window.innerWidth - 0.5) * 20;
@@ -517,7 +513,6 @@
         }
         animate();
 
-        // تأثير تغيير خلفية الهيدر عند التمرير
         window.addEventListener('scroll', () => {
             const header = document.getElementById('header');
             if (window.scrollY > 40) {
