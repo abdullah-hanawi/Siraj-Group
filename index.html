@@ -44,12 +44,10 @@
             overflow-x: hidden;
         }
 
-        /* Fixed Header */
         .glass-header {
             background-color: rgba(255, 255, 255, 0.98);
         }
 
-        /* Modal custom animation */
         .modal {
             transition: opacity 0.3s ease, visibility 0.3s ease;
         }
@@ -137,7 +135,7 @@
                     </div>
                 </div>
 
-                <!-- Hero Card (Fixed Layout & Text) -->
+                <!-- Hero Card (Fixed Siraj Partnership) -->
                 <div class="lg:col-span-5">
                     <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-slate-900 via-seraj-blue to-slate-800 p-8 text-white border border-slate-700/50 flex flex-col items-center justify-center text-center min-h-[300px]">
                         <div class="w-16 h-16 rounded-2xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center mb-6 text-blue-400">
@@ -148,7 +146,7 @@
                             Siraj Partnership
                         </h3>
                         
-                        <div class="w-12 h-1 bg-seraj-gold rounded-full mb-4"></div>
+                        <div class="w-12 h-1 bg-amber-500 rounded-full mb-4"></div>
                         
                         <h4 class="text-lg font-bold text-slate-100 mb-2">
                             شراكة قائمة على الثقة والنجاح
@@ -289,7 +287,6 @@
 
     <div id="contact-modal" class="modal opacity-0 invisible fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
         <div class="bg-white rounded-2xl max-w-lg w-full p-6 md:p-8 shadow-2xl relative">
-            <!-- Close Button -->
             <button onclick="closeModal()" class="absolute top-4 left-4 text-slate-400 hover:text-slate-600 text-xl w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100">
                 <i class="fa-solid fa-xmark"></i>
             </button>
@@ -332,10 +329,8 @@
     </div>
 
     <script>
-        // Dynamic copyright year
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Mobile Menu Toggle Logic
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
@@ -349,7 +344,6 @@
             });
         });
 
-        // Modal Open/Close Logic
         const modal = document.getElementById('contact-modal');
         const contactForm = document.getElementById('contact-form');
         const formSuccess = document.getElementById('form-success');
@@ -371,7 +365,6 @@
             }
         });
 
-        // Form Submit Handler
         function handleFormSubmit(event) {
             event.preventDefault();
             contactForm.classList.add('hidden');
