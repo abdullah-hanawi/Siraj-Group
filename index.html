@@ -37,11 +37,15 @@
     </script>
     
     <style>
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Cairo', sans-serif;
             background-color: #F8FAFC;
             color: #1E293B;
-            overflow-x: hidden;
         }
 
         .glass-header {
@@ -57,18 +61,18 @@
         }
     </style>
 </head>
-<body class="antialiased flex flex-col min-h-screen">
+<body class="antialiased flex flex-col min-h-screen w-full">
 
-    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 glass-header border-b border-slate-200 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 glass-header border-b border-slate-200 shadow-sm w-full">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
             <!-- Brand Logo -->
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-seraj-accent to-seraj-gold flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform duration-300">
-                    <i class="fa-solid fa-lightbulb text-xl"></i>
+            <a href="#" class="flex items-center gap-2 sm:gap-3 group">
+                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-seraj-accent to-seraj-gold flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform duration-300">
+                    <i class="fa-solid fa-lightbulb text-lg sm:text-xl"></i>
                 </div>
                 <div>
-                    <span class="text-2xl font-extrabold text-seraj-blue tracking-tight block leading-none">سِرَاج</span>
-                    <span class="text-xs block text-seraj-accent font-semibold mt-1">للتسويق والاستشارات</span>
+                    <span class="text-xl sm:text-2xl font-extrabold text-seraj-blue tracking-tight block leading-none">سِرَاج</span>
+                    <span class="text-[10px] sm:text-xs block text-seraj-accent font-semibold mt-1">للتسويق والاستشارات</span>
                 </div>
             </a>
 
@@ -87,7 +91,7 @@
             </div>
 
             <!-- Mobile Menu Toggle -->
-            <button id="menu-btn" class="md:hidden text-slate-700 text-2xl focus:outline-none p-2">
+            <button id="menu-btn" aria-label="فتح القائمة" class="md:hidden text-slate-700 text-2xl focus:outline-none p-2">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
@@ -97,58 +101,58 @@
             <a href="#hero" class="hover:text-seraj-accent transition-colors py-1">الرئيسية</a>
             <a href="#about" class="hover:text-seraj-accent transition-colors py-1">عن سراج</a>
             <a href="#services" class="hover:text-seraj-accent transition-colors py-1">خدماتنا</a>
-            <button onclick="openModal()" class="w-full bg-seraj-accent text-white py-2.5 rounded-xl font-bold mt-2">
+            <button onclick="openModal(); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full bg-seraj-accent text-white py-2.5 rounded-xl font-bold mt-2">
                 تواصل معنا
             </button>
         </div>
     </header>
 
-    <main class="flex-grow pt-28">
+    <main class="flex-grow pt-24 sm:pt-28 w-full overflow-hidden">
 
-        <section id="hero" class="py-12 md:py-20 px-6 max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <section id="hero" class="py-8 sm:py-12 md:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                 
                 <!-- Hero Content -->
-                <div class="lg:col-span-7 space-y-6 text-center lg:text-right">
-                    <div class="inline-flex items-center gap-2 bg-seraj-lightGold text-amber-800 px-4 py-1.5 rounded-full text-sm font-bold border border-amber-200">
+                <div class="lg:col-span-7 space-y-4 sm:space-y-6 text-center lg:text-right">
+                    <div class="inline-flex items-center gap-2 bg-seraj-lightGold text-amber-800 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold border border-amber-200">
                         <i class="fa-solid fa-handshake text-seraj-gold"></i>
                         <span>شريكك للتسويق والاستراتيجية</span>
                     </div>
 
-                    <h1 class="text-3xl md:text-5xl font-extrabold text-seraj-blue leading-tight">
+                    <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-seraj-blue leading-snug sm:leading-tight">
                         ندعم ونرعى الشركات <br class="hidden sm:inline">
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-seraj-accent to-blue-600">ذات الأفضلية والميزة التنافسية</span>
                     </h1>
 
-                    <p class="text-slate-600 text-base md:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                    <p class="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
                         في شركة <strong class="text-seraj-blue font-bold">سراج</strong>، نعمل على دعم الشركات المتميزة في السوق من خلال تسويق حديث واستراتيجي يبرز نجاحها، ويساعدها على الوصول إلى جمهورها المستهدف بالشكل الأفضل.
                     </p>
 
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
-                        <button onclick="openModal()" class="bg-seraj-accent hover:bg-blue-700 text-white px-8 py-3.5 rounded-xl font-bold text-base shadow-lg shadow-blue-500/20 transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-2">
+                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start pt-2">
+                        <button onclick="openModal()" class="w-full sm:w-auto bg-seraj-accent hover:bg-blue-700 text-white px-8 py-3.5 rounded-xl font-bold text-base shadow-lg shadow-blue-500/20 transition-all duration-300 flex items-center justify-center gap-2">
                             <span>ابدأ معنا اليوم</span>
                             <i class="fa-solid fa-arrow-left text-sm"></i>
                         </button>
-                        <a href="#about" class="bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-8 py-3.5 rounded-xl font-bold text-base transition-all duration-300 flex items-center justify-center gap-2">
+                        <a href="#about" class="w-full sm:w-auto bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-8 py-3.5 rounded-xl font-bold text-base transition-all duration-300 flex items-center justify-center gap-2">
                             <span>اقرأ عن رؤيتنا</span>
                         </a>
                     </div>
                 </div>
 
-                <!-- Hero Card (Fixed Siraj Partnership) -->
-                <div class="lg:col-span-5">
-                    <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-slate-900 via-seraj-blue to-slate-800 p-8 text-white border border-slate-700/50 flex flex-col items-center justify-center text-center min-h-[300px]">
-                        <div class="w-16 h-16 rounded-2xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center mb-6 text-blue-400">
-                            <i class="fa-solid fa-handshake-simple text-3xl"></i>
+                <!-- Hero Card (Siraj Partnership) -->
+                <div class="lg:col-span-5 w-full">
+                    <div class="relative rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-slate-900 via-seraj-blue to-slate-800 p-6 sm:p-8 text-white border border-slate-700/50 flex flex-col items-center justify-center text-center min-h-[260px] sm:min-h-[300px]">
+                        <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center mb-4 sm:mb-6 text-blue-400">
+                            <i class="fa-solid fa-handshake-simple text-2xl sm:text-3xl"></i>
                         </div>
                         
-                        <h3 class="text-2xl font-extrabold tracking-wide text-white mb-3">
+                        <h3 class="text-xl sm:text-2xl font-extrabold tracking-wide text-white mb-2 sm:mb-3">
                             Siraj Partnership
                         </h3>
                         
-                        <div class="w-12 h-1 bg-amber-500 rounded-full mb-4"></div>
+                        <div class="w-12 h-1 bg-amber-500 rounded-full mb-3 sm:mb-4"></div>
                         
-                        <h4 class="text-lg font-bold text-slate-100 mb-2">
+                        <h4 class="text-base sm:text-lg font-bold text-slate-100 mb-2">
                             شراكة قائمة على الثقة والنجاح
                         </h4>
                         
@@ -161,44 +165,44 @@
             </div>
         </section>
 
-        <section id="about" class="py-16 bg-white border-y border-slate-100">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="max-w-3xl mx-auto text-center space-y-4">
-                    <span class="text-seraj-accent font-bold text-sm uppercase">فلسفتنا في العمل</span>
-                    <h2 class="text-2xl md:text-3xl font-extrabold text-seraj-blue">لماذا نركز على الشركات المتميزة؟</h2>
-                    <p class="text-slate-600 text-base md:text-lg leading-relaxed">
+        <section id="about" class="py-12 sm:py-16 bg-white border-y border-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+                <div class="max-w-3xl mx-auto text-center space-y-3 sm:space-y-4">
+                    <span class="text-seraj-accent font-bold text-xs sm:text-sm uppercase">فلسفتنا في العمل</span>
+                    <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-seraj-blue">لماذا نركز على الشركات المتميزة؟</h2>
+                    <p class="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed">
                         نؤمن بأن الشركات التي تقدم جودة حقيقية وميزة تنافسية تستحق أن تكون في مقدمة السوق. دورنا في <span class="font-bold text-seraj-blue">سراج</span> هو توفير الحلول التسويقية والتنفيذية التي تعكس هذا التميز وتضمن وصول رسالتكم بوضوح واحترافية.
                     </p>
                 </div>
 
                 <!-- Simple Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                    <div class="p-8 rounded-2xl bg-seraj-bg border border-slate-100 space-y-3">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mt-8 sm:mt-12">
+                    <div class="p-6 sm:p-8 rounded-2xl bg-seraj-bg border border-slate-100 space-y-3">
                         <div class="w-12 h-12 rounded-xl bg-blue-100 text-seraj-accent flex items-center justify-center text-xl font-bold">
                             <i class="fa-solid fa-bullseye"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-seraj-blue">تسويق استراتيجي</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">
+                        <h3 class="text-base sm:text-lg font-bold text-seraj-blue">تسويق استراتيجي</h3>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
                             خطط تسويقية مدروسة تناسب طبيعة نشاطك وتخاطب جمهورك بشكل مباشر وفعال.
                         </p>
                     </div>
 
-                    <div class="p-8 rounded-2xl bg-seraj-bg border border-slate-100 space-y-3">
+                    <div class="p-6 sm:p-8 rounded-2xl bg-seraj-bg border border-slate-100 space-y-3">
                         <div class="w-12 h-12 rounded-xl bg-amber-100 text-seraj-gold flex items-center justify-center text-xl font-bold">
                             <i class="fa-solid fa-award"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-seraj-blue">إبراز الميزة التنافسية</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">
+                        <h3 class="text-base sm:text-lg font-bold text-seraj-blue">إبراز الميزة التنافسية</h3>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
                             تركيز الضوء على نقاط القوة التي تجعل شركتك الأفضل والأجدر بالاختيار.
                         </p>
                     </div>
 
-                    <div class="p-8 rounded-2xl bg-seraj-bg border border-slate-100 space-y-3">
+                    <div class="p-6 sm:p-8 rounded-2xl bg-seraj-bg border border-slate-100 space-y-3">
                         <div class="w-12 h-12 rounded-xl bg-slate-200 text-slate-800 flex items-center justify-center text-xl font-bold">
                             <i class="fa-solid fa-handshake-angle"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-seraj-blue">رعاية الشراكة</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed">
+                        <h3 class="text-base sm:text-lg font-bold text-seraj-blue">رعاية الشراكة</h3>
+                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
                             نعمل كفريق واحد مع شركتك لضمان استمرار التميز والنمو في السوق.
                         </p>
                     </div>
@@ -206,58 +210,58 @@
             </div>
         </section>
 
-        <section id="services" class="py-16 md:py-24 px-6 max-w-7xl mx-auto">
-            <div class="text-center max-w-2xl mx-auto mb-12 space-y-2">
-                <span class="text-seraj-accent font-bold text-sm">كيف نخدمك؟</span>
-                <h2 class="text-2xl md:text-3xl font-extrabold text-seraj-blue">خدمات تسويقية متكاملة</h2>
+        <section id="services" class="py-12 sm:py-16 md:py-24 px-4 sm:px-6 max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12 space-y-2">
+                <span class="text-seraj-accent font-bold text-xs sm:text-sm">كيف نخدمك؟</span>
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-seraj-blue">خدمات تسويقية متكاملة</h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
                 <!-- Service 1 -->
-                <div class="bg-white p-8 rounded-2xl border border-slate-200 hover:border-seraj-accent hover:shadow-lg transition-all duration-300">
+                <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 hover:border-seraj-accent hover:shadow-lg transition-all duration-300">
                     <div class="w-12 h-12 rounded-xl bg-blue-50 text-seraj-accent flex items-center justify-center text-xl mb-4">
                         <i class="fa-solid fa-rectangle-ad"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-seraj-blue mb-2">إدارة الحملات التسويقية</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
+                    <h3 class="text-base sm:text-lg font-bold text-seraj-blue mb-2">إدارة الحملات التسويقية</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
                         تخطيط وإدارة الحملات الإعلانية على المنصات المناسبة لتحقيق التواجد المطلوب.
                     </p>
                 </div>
 
                 <!-- Service 2 -->
-                <div class="bg-white p-8 rounded-2xl border border-slate-200 hover:border-seraj-accent hover:shadow-lg transition-all duration-300">
+                <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 hover:border-seraj-accent hover:shadow-lg transition-all duration-300">
                     <div class="w-12 h-12 rounded-xl bg-amber-50 text-seraj-gold flex items-center justify-center text-xl mb-4">
                         <i class="fa-solid fa-pen-nib"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-seraj-blue mb-2">تعزيز الهوية والرسالة</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
+                    <h3 class="text-base sm:text-lg font-bold text-seraj-blue mb-2">تعزيز الهوية والرسالة</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
                         صياغة المحتوى وإبراز الرسائل التسويقية التي تعكس جودة الخدمات والمنتجات.
                     </p>
                 </div>
 
                 <!-- Service 3 -->
-                <div class="bg-white p-8 rounded-2xl border border-slate-200 hover:border-seraj-accent hover:shadow-lg transition-all duration-300">
+                <div class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 hover:border-seraj-accent hover:shadow-lg transition-all duration-300">
                     <div class="w-12 h-12 rounded-xl bg-blue-50 text-seraj-accent flex items-center justify-center text-xl mb-4">
                         <i class="fa-solid fa-compass"></i>
                     </div>
-                    <h3 class="text-lg font-bold text-seraj-blue mb-2">الاستشارات التسويقية</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
+                    <h3 class="text-base sm:text-lg font-bold text-seraj-blue mb-2">الاستشارات التسويقية</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
                         تقديم التوجيه والرأي الاستشاري لتجاوز التحديات واقتناص الفرص في السوق.
                     </p>
                 </div>
             </div>
         </section>
 
-        <section class="py-12 px-6 max-w-7xl mx-auto my-4">
-            <div class="bg-gradient-to-br from-seraj-blue to-slate-800 text-white rounded-3xl p-8 md:p-12 shadow-xl text-center space-y-6">
-                <h2 class="text-2xl md:text-3xl font-extrabold">
+        <section class="py-8 sm:py-12 px-4 sm:px-6 max-w-7xl mx-auto my-4">
+            <div class="bg-gradient-to-br from-seraj-blue to-slate-800 text-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 shadow-xl text-center space-y-4 sm:space-y-6">
+                <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold leading-snug">
                     هل تمتلك شركتك الميزة التنافسية وترغب في الانطلاق؟
                 </h2>
-                <p class="text-slate-300 text-sm md:text-base max-w-xl mx-auto">
+                <p class="text-slate-300 text-xs sm:text-sm md:text-base max-w-xl mx-auto leading-relaxed">
                     نحن هنا لنكون ذراعك التسويقي الاستراتيجي. تواصل معنا اليوم لمناقشة كيفية تسويق تميزك بشكل أفضل.
                 </p>
                 <div class="pt-2">
-                    <button onclick="openModal()" class="bg-seraj-gold hover:bg-amber-600 text-slate-900 font-extrabold text-base px-8 py-3.5 rounded-xl shadow-md transition-all duration-300 hover:scale-105">
+                    <button onclick="openModal()" class="w-full sm:w-auto bg-seraj-gold hover:bg-amber-600 text-slate-900 font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-xl shadow-md transition-all duration-300 hover:scale-105">
                         تواصل مع فريق سراج
                     </button>
                 </div>
@@ -266,15 +270,15 @@
 
     </main>
 
-    <footer class="bg-slate-900 text-slate-400 py-10 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+    <footer class="bg-slate-900 text-slate-400 py-8 sm:py-10 border-t border-slate-800 w-full">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 text-center md:text-right">
                 <!-- Footer Brand -->
                 <div class="flex items-center gap-3">
                     <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-seraj-accent to-seraj-gold flex items-center justify-center text-white font-bold">
                         <i class="fa-solid fa-lightbulb text-sm"></i>
                     </div>
-                    <span class="text-lg font-bold text-white">شركة سراج للتسويق</span>
+                    <span class="text-base sm:text-lg font-bold text-white">شركة سراج للتسويق</span>
                 </div>
 
                 <!-- Copyright -->
@@ -285,14 +289,15 @@
         </div>
     </footer>
 
+    <!-- Contact Modal -->
     <div id="contact-modal" class="modal opacity-0 invisible fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
-        <div class="bg-white rounded-2xl max-w-lg w-full p-6 md:p-8 shadow-2xl relative">
-            <button onclick="closeModal()" class="absolute top-4 left-4 text-slate-400 hover:text-slate-600 text-xl w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-5 sm:p-8 shadow-2xl relative">
+            <button onclick="closeModal()" aria-label="إغلاق النافذة" class="absolute top-4 left-4 text-slate-400 hover:text-slate-600 text-xl w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100">
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
             <div class="text-center mb-6">
-                <h3 class="text-xl font-bold text-seraj-blue">تواصل مع شركة سراج</h3>
+                <h3 class="text-lg sm:text-xl font-bold text-seraj-blue">تواصل مع شركة سراج</h3>
                 <p class="text-slate-500 text-xs mt-1">قم بتعبئة النموذج وسنقوم بالتواصل معك قريبًا</p>
             </div>
 
