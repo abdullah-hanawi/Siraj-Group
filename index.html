@@ -37,15 +37,11 @@
     </script>
     
     <style>
-        html, body {
-            max-width: 100%;
-            overflow-x: hidden;
-        }
-
         body {
             font-family: 'Cairo', sans-serif;
             background-color: #F8FAFC;
             color: #1E293B;
+            overflow-x: hidden;
         }
 
         .glass-header {
@@ -61,14 +57,14 @@
         }
     </style>
 </head>
-<body class="antialiased flex flex-col min-h-screen w-full">
+<body class="antialiased flex flex-col min-h-screen relative">
 
-    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 glass-header border-b border-slate-200 shadow-sm w-full">
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 glass-header border-b border-slate-200 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
             <!-- Brand Logo -->
-            <a href="#" class="flex items-center gap-2 sm:gap-3 group">
-                <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-seraj-accent to-seraj-gold flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform duration-300">
-                    <i class="fa-solid fa-lightbulb text-lg sm:text-xl"></i>
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-seraj-accent to-seraj-gold flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform duration-300">
+                    <i class="fa-solid fa-lightbulb text-xl"></i>
                 </div>
                 <div>
                     <span class="text-xl sm:text-2xl font-extrabold text-seraj-blue tracking-tight block leading-none">سِرَاج</span>
@@ -83,43 +79,43 @@
                 <a href="#services" class="hover:text-seraj-accent transition-colors">خدماتنا</a>
             </nav>
 
-            <!-- CTA Button -->
+            <!-- CTA Button (Desktop) -->
             <div class="hidden md:block">
                 <button onclick="openModal()" class="bg-seraj-accent hover:bg-blue-700 text-white px-6 py-2.5 rounded-full font-bold shadow-md shadow-blue-500/20 hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-0.5">
                     تواصل معنا
                 </button>
             </div>
 
-            <!-- Mobile Menu Toggle -->
-            <button id="menu-btn" aria-label="فتح القائمة" class="md:hidden text-slate-700 text-2xl focus:outline-none p-2">
-                <i class="fa-solid fa-bars"></i>
+            <!-- Mobile Menu Toggle Button -->
+            <button id="menu-btn" aria-label="Toggle Menu" class="md:hidden text-slate-700 text-2xl focus:outline-none p-2 rounded-lg hover:bg-slate-100">
+                <i id="menu-icon" class="fa-solid fa-bars"></i>
             </button>
         </div>
 
         <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-100 px-6 py-4 flex flex-col gap-4 font-semibold text-slate-700 shadow-xl">
-            <a href="#hero" class="hover:text-seraj-accent transition-colors py-1">الرئيسية</a>
-            <a href="#about" class="hover:text-seraj-accent transition-colors py-1">عن سراج</a>
-            <a href="#services" class="hover:text-seraj-accent transition-colors py-1">خدماتنا</a>
-            <button onclick="openModal(); document.getElementById('mobile-menu').classList.add('hidden')" class="w-full bg-seraj-accent text-white py-2.5 rounded-xl font-bold mt-2">
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-6 py-5 flex-col gap-4 font-semibold text-slate-700 shadow-xl">
+            <a href="#hero" class="mobile-link hover:text-seraj-accent transition-colors py-2 border-b border-slate-100">الرئيسية</a>
+            <a href="#about" class="mobile-link hover:text-seraj-accent transition-colors py-2 border-b border-slate-100">عن سراج</a>
+            <a href="#services" class="mobile-link hover:text-seraj-accent transition-colors py-2 border-b border-slate-100">خدماتنا</a>
+            <button onclick="openModal(); closeMobileMenu();" class="w-full bg-seraj-accent text-white py-3 rounded-xl font-bold mt-2 shadow-md">
                 تواصل معنا
             </button>
         </div>
     </header>
 
-    <main class="flex-grow pt-24 sm:pt-28 w-full overflow-hidden">
+    <main class="flex-grow pt-20 sm:pt-28">
 
         <section id="hero" class="py-8 sm:py-12 md:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                 
                 <!-- Hero Content -->
-                <div class="lg:col-span-7 space-y-4 sm:space-y-6 text-center lg:text-right">
+                <div class="lg:col-span-7 space-y-5 sm:space-y-6 text-center lg:text-right">
                     <div class="inline-flex items-center gap-2 bg-seraj-lightGold text-amber-800 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold border border-amber-200">
                         <i class="fa-solid fa-handshake text-seraj-gold"></i>
                         <span>شريكك للتسويق والاستراتيجية</span>
                     </div>
 
-                    <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-seraj-blue leading-snug sm:leading-tight">
+                    <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-seraj-blue leading-tight">
                         ندعم ونرعى الشركات <br class="hidden sm:inline">
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-seraj-accent to-blue-600">ذات الأفضلية والميزة التنافسية</span>
                     </h1>
@@ -139,10 +135,10 @@
                     </div>
                 </div>
 
-                <!-- Hero Card (Siraj Partnership) -->
+                <!-- Hero Card -->
                 <div class="lg:col-span-5 w-full">
-                    <div class="relative rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-slate-900 via-seraj-blue to-slate-800 p-6 sm:p-8 text-white border border-slate-700/50 flex flex-col items-center justify-center text-center min-h-[260px] sm:min-h-[300px]">
-                        <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center mb-4 sm:mb-6 text-blue-400">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-slate-900 via-seraj-blue to-slate-800 p-6 sm:p-8 text-white border border-slate-700/50 flex flex-col items-center justify-center text-center min-h-[260px] sm:min-h-[300px]">
+                        <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center mb-5 text-blue-400">
                             <i class="fa-solid fa-handshake-simple text-2xl sm:text-3xl"></i>
                         </div>
                         
@@ -150,13 +146,13 @@
                             Siraj Partnership
                         </h3>
                         
-                        <div class="w-12 h-1 bg-amber-500 rounded-full mb-3 sm:mb-4"></div>
+                        <div class="w-12 h-1 bg-amber-500 rounded-full mb-4"></div>
                         
                         <h4 class="text-base sm:text-lg font-bold text-slate-100 mb-2">
                             شراكة قائمة على الثقة والنجاح
                         </h4>
                         
-                        <p class="text-xs text-slate-300 leading-relaxed max-w-xs">
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xs">
                             نسلط الضوء على تميزك ونقاط قوتك في السوق
                         </p>
                     </div>
@@ -176,13 +172,13 @@
                 </div>
 
                 <!-- Simple Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mt-8 sm:mt-12">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mt-10 sm:mt-12">
                     <div class="p-6 sm:p-8 rounded-2xl bg-seraj-bg border border-slate-100 space-y-3">
                         <div class="w-12 h-12 rounded-xl bg-blue-100 text-seraj-accent flex items-center justify-center text-xl font-bold">
                             <i class="fa-solid fa-bullseye"></i>
                         </div>
-                        <h3 class="text-base sm:text-lg font-bold text-seraj-blue">تسويق استراتيجي</h3>
-                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        <h3 class="text-lg font-bold text-seraj-blue">تسويق استراتيجي</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
                             خطط تسويقية مدروسة تناسب طبيعة نشاطك وتخاطب جمهورك بشكل مباشر وفعال.
                         </p>
                     </div>
@@ -191,8 +187,8 @@
                         <div class="w-12 h-12 rounded-xl bg-amber-100 text-seraj-gold flex items-center justify-center text-xl font-bold">
                             <i class="fa-solid fa-award"></i>
                         </div>
-                        <h3 class="text-base sm:text-lg font-bold text-seraj-blue">إبراز الميزة التنافسية</h3>
-                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        <h3 class="text-lg font-bold text-seraj-blue">إبراز الميزة التنافسية</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
                             تركيز الضوء على نقاط القوة التي تجعل شركتك الأفضل والأجدر بالاختيار.
                         </p>
                     </div>
@@ -201,8 +197,8 @@
                         <div class="w-12 h-12 rounded-xl bg-slate-200 text-slate-800 flex items-center justify-center text-xl font-bold">
                             <i class="fa-solid fa-handshake-angle"></i>
                         </div>
-                        <h3 class="text-base sm:text-lg font-bold text-seraj-blue">رعاية الشراكة</h3>
-                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        <h3 class="text-lg font-bold text-seraj-blue">رعاية الشراكة</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
                             نعمل كفريق واحد مع شركتك لضمان استمرار التميز والنمو في السوق.
                         </p>
                     </div>
@@ -222,8 +218,8 @@
                     <div class="w-12 h-12 rounded-xl bg-blue-50 text-seraj-accent flex items-center justify-center text-xl mb-4">
                         <i class="fa-solid fa-rectangle-ad"></i>
                     </div>
-                    <h3 class="text-base sm:text-lg font-bold text-seraj-blue mb-2">إدارة الحملات التسويقية</h3>
-                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                    <h3 class="text-lg font-bold text-seraj-blue mb-2">إدارة الحملات التسويقية</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
                         تخطيط وإدارة الحملات الإعلانية على المنصات المناسبة لتحقيق التواجد المطلوب.
                     </p>
                 </div>
@@ -233,8 +229,8 @@
                     <div class="w-12 h-12 rounded-xl bg-amber-50 text-seraj-gold flex items-center justify-center text-xl mb-4">
                         <i class="fa-solid fa-pen-nib"></i>
                     </div>
-                    <h3 class="text-base sm:text-lg font-bold text-seraj-blue mb-2">تعزيز الهوية والرسالة</h3>
-                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                    <h3 class="text-lg font-bold text-seraj-blue mb-2">تعزيز الهوية والرسالة</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
                         صياغة المحتوى وإبراز الرسائل التسويقية التي تعكس جودة الخدمات والمنتجات.
                     </p>
                 </div>
@@ -244,16 +240,16 @@
                     <div class="w-12 h-12 rounded-xl bg-blue-50 text-seraj-accent flex items-center justify-center text-xl mb-4">
                         <i class="fa-solid fa-compass"></i>
                     </div>
-                    <h3 class="text-base sm:text-lg font-bold text-seraj-blue mb-2">الاستشارات التسويقية</h3>
-                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                    <h3 class="text-lg font-bold text-seraj-blue mb-2">الاستشارات التسويقية</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
                         تقديم التوجيه والرأي الاستشاري لتجاوز التحديات واقتناص الفرص في السوق.
                     </p>
                 </div>
             </div>
         </section>
 
-        <section class="py-8 sm:py-12 px-4 sm:px-6 max-w-7xl mx-auto my-4">
-            <div class="bg-gradient-to-br from-seraj-blue to-slate-800 text-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 shadow-xl text-center space-y-4 sm:space-y-6">
+        <section class="py-8 sm:py-12 px-4 sm:px-6 max-w-7xl mx-auto my-2 sm:my-4">
+            <div class="bg-gradient-to-br from-seraj-blue to-slate-800 text-white rounded-3xl p-6 sm:p-8 md:p-12 shadow-xl text-center space-y-4 sm:space-y-6">
                 <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold leading-snug">
                     هل تمتلك شركتك الميزة التنافسية وترغب في الانطلاق؟
                 </h2>
@@ -270,9 +266,9 @@
 
     </main>
 
-    <footer class="bg-slate-900 text-slate-400 py-8 sm:py-10 border-t border-slate-800 w-full">
+    <footer class="bg-slate-900 text-slate-400 py-8 sm:py-10 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 text-center md:text-right">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 text-center sm:text-right">
                 <!-- Footer Brand -->
                 <div class="flex items-center gap-3">
                     <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-seraj-accent to-seraj-gold flex items-center justify-center text-white font-bold">
@@ -289,10 +285,10 @@
         </div>
     </footer>
 
-    <!-- Contact Modal -->
+    <!-- Modal -->
     <div id="contact-modal" class="modal opacity-0 invisible fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
-        <div class="bg-white rounded-2xl max-w-lg w-full p-5 sm:p-8 shadow-2xl relative">
-            <button onclick="closeModal()" aria-label="إغلاق النافذة" class="absolute top-4 left-4 text-slate-400 hover:text-slate-600 text-xl w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100">
+        <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal()" class="absolute top-4 left-4 text-slate-400 hover:text-slate-600 text-xl w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100">
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
@@ -333,22 +329,41 @@
         </div>
     </div>
 
+    <!-- JavaScript Fixes -->
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
 
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
 
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        function toggleMobileMenu() {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            } else {
+                closeMobileMenu();
+            }
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+            menuIcon.classList.remove('fa-xmark');
+            menuIcon.classList.add('fa-bars');
+        }
+
+        menuBtn.addEventListener('click', toggleMobileMenu);
+
+        // Close mobile menu on clicking any navigation link
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
         });
 
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
+        // Modal Logic
         const modal = document.getElementById('contact-modal');
         const contactForm = document.getElementById('contact-form');
         const formSuccess = document.getElementById('form-success');
