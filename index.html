@@ -1,435 +1,324 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" class="scroll-smooth">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>شركة سراج | حلول التسويق الاستراتيجي للشركات المتميزة</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شركة سراج | الموقع تحت الإنشاء</title>
     
-    <!-- Google Fonts: Cairo -->
+    <!-- خط Cairo وروموز Font Awesome -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        seraj: {
-                            blue: '#0F172A',
-                            accent: '#2563EB',
-                            gold: '#F59E0B',
-                            lightGold: '#FEF3C7',
-                            bg: '#F8FAFC'
-                        }
-                    },
-                    fontFamily: {
-                        cairo: ['Cairo', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-    
+
     <style>
-        body {
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
             font-family: 'Cairo', sans-serif;
-            background-color: #F8FAFC;
-            color: #1E293B;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #0f172a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
             overflow-x: hidden;
+        }
+
+        /* الهيدر والشعار */
+        header {
             width: 100%;
+            max-width: 1100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
         }
 
-        .glass-header {
-            background-color: rgba(255, 255, 255, 0.98);
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
         }
 
-        .modal {
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-        .modal.active {
-            opacity: 1;
-            visibility: visible;
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, #2563eb, #f59e0b);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 20px;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
         }
 
-        /* إصلاح انزلاق القائمة على أجهزة الجوال */
-        #mobile-sidebar {
-            transition: transform 0.3s ease-in-out;
+        .logo-text {
+            font-size: 24px;
+            font-weight: 800;
+            color: #0f172a;
         }
-        #mobile-sidebar.closed {
-            transform: translateX(100%);
+
+        .badge {
+            background-color: #f1f5f9;
+            color: #475569;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
         }
-        #mobile-sidebar.open {
-            transform: translateX(0);
+
+        /* المحتوى الرئيسي */
+        main {
+            max-width: 800px;
+            text-align: center;
+            margin: 40px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* رسمة الـ 2D المتحركة للمبنى */
+        .construction-scene {
+            width: 280px;
+            height: 220px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* تحريك أجزاء المبنى والرافعة */
+        .building-block {
+            animation: buildUp 3s infinite ease-in-out;
+            transform-origin: bottom;
+        }
+
+        .block-2 { animation-delay: 0.5s; }
+        .block-3 { animation-delay: 1s; }
+
+        @keyframes buildUp {
+            0%, 100% { opacity: 0.3; transform: scaleY(0.8); }
+            50% { opacity: 1; transform: scaleY(1); }
+        }
+
+        .crane-arm {
+            animation: rotateCrane 4s infinite ease-in-out;
+            transform-origin: 70px 150px;
+        }
+
+        @keyframes rotateCrane {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(-8deg); }
+        }
+
+        .hook-line {
+            animation: hookMove 4s infinite ease-in-out;
+        }
+
+        @keyframes hookMove {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+
+        /* النصوص والمعلومات */
+        h1 {
+            font-size: 32px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        h1 span {
+            color: #2563eb;
+        }
+
+        p {
+            font-size: 16px;
+            color: #64748b;
+            line-height: 1.7;
+            max-width: 550px;
+            margin-bottom: 30px;
+        }
+
+        /* نموذج الاشتراك للتنبيهات */
+        .subscribe-form {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            max-width: 450px;
+            background-color: #ffffff;
+            padding: 6px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        .subscribe-form input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 10px 16px;
+            font-size: 14px;
+            border-radius: 12px;
+            color: #0f172a;
+        }
+
+        .subscribe-form button {
+            background-color: #2563eb;
+            color: #ffffff;
+            border: none;
+            padding: 10px 22px;
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .subscribe-form button:hover {
+            background-color: #1d4ed8;
+        }
+
+        .success-message {
+            display: none;
+            color: #16a34a;
+            font-weight: 700;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+
+        /* الفوتر */
+        footer {
+            width: 100%;
+            max-width: 1100px;
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid #f1f5f9;
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+        /* تجاوب الشاشات الصغير جداً */
+        @media (max-width: 480px) {
+            h1 { font-size: 24px; }
+            p { font-size: 14px; }
+            .subscribe-form { flex-direction: column; border: none; box-shadow: none; padding: 0; }
+            .subscribe-form input { border: 1px solid #e2e8f0; padding: 12px; }
+            .subscribe-form button { padding: 12px; }
         }
     </style>
 </head>
-<body class="antialiased flex flex-col min-h-screen relative">
+<body>
 
-    <!-- Navbar -->
-    <header id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 py-3 glass-header border-b border-slate-200 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
-            <!-- Brand Logo -->
-            <a href="#" class="flex items-center gap-2.5 group">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-seraj-accent to-seraj-gold flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform duration-300">
-                    <i class="fa-solid fa-lightbulb text-lg"></i>
-                </div>
-                <div>
-                    <span class="text-xl font-extrabold text-seraj-blue tracking-tight block leading-none">سِرَاج</span>
-                    <span class="text-[10px] block text-seraj-accent font-semibold mt-1">للتسويق والاستشارات</span>
-                </div>
-            </a>
-
-            <!-- Desktop Navigation -->
-            <nav class="hidden md:flex items-center gap-8 font-semibold text-slate-600">
-                <a href="#hero" class="hover:text-seraj-accent transition-colors">الرئيسية</a>
-                <a href="#about" class="hover:text-seraj-accent transition-colors">عن سراج</a>
-                <a href="#services" class="hover:text-seraj-accent transition-colors">خدماتنا</a>
-            </nav>
-
-            <!-- CTA Button (Desktop) -->
-            <div class="hidden md:block">
-                <button onclick="openModal()" class="bg-seraj-accent hover:bg-blue-700 text-white px-6 py-2.5 rounded-full font-bold shadow-md shadow-blue-500/20 hover:shadow-blue-500/30 transition-all duration-300 hover:-translate-y-0.5">
-                    تواصل معنا
-                </button>
+    <!-- الهيدر -->
+    <header>
+        <a href="#" class="logo">
+            <div class="logo-icon">
+                <i class="fa-solid fa-lightbulb"></i>
             </div>
-
-            <!-- Mobile Menu Toggle Button -->
-            <button id="open-menu-btn" aria-label="Open Menu" class="md:hidden text-slate-700 text-2xl p-2 rounded-lg hover:bg-slate-100 focus:outline-none">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
+            <span class="logo-text">سِرَاج</span>
+        </a>
+        <div class="badge">قريباً جداً</div>
     </header>
 
-    <!-- Mobile Sidebar Menu & Backdrop (نظام مستقل تماماً) -->
-    <div id="mobile-backdrop" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300 md:hidden"></div>
-    
-    <aside id="mobile-sidebar" class="fixed top-0 right-0 w-[280px] max-w-[80vw] h-full bg-white z-50 shadow-2xl flex flex-col closed md:hidden">
-        <div class="p-5 border-b border-slate-100 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-seraj-accent to-seraj-gold flex items-center justify-center text-white font-bold text-sm">
-                    <i class="fa-solid fa-lightbulb"></i>
-                </div>
-                <span class="font-extrabold text-seraj-blue text-lg">سِرَاج</span>
-            </div>
-            <button id="close-menu-btn" class="w-9 h-9 flex items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:text-slate-800 focus:outline-none">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
+    <!-- المحتوى الرئيسي -->
+    <main>
+        <!-- الرسمة المتحركة 2D بالـ SVG -->
+        <div class="construction-scene">
+            <svg viewBox="0 0 300 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- الأرضية -->
+                <line x1="20" y1="200" x2="280" y2="200" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round"/>
+                
+                <!-- سكة الرافعة والقاعدة -->
+                <rect x="50" y="190" width="40" height="10" rx="2" fill="#64748b"/>
+                <line x1="70" y1="190" x2="70" y2="40" stroke="#94a3b8" stroke-width="6"/>
+                
+                <!-- هيكل الرافعة (شبكة) -->
+                <line x1="65" y1="60" x2="75" y2="70" stroke="#cbd5e1" stroke-width="2"/>
+                <line x1="65" y1="90" x2="75" y2="100" stroke="#cbd5e1" stroke-width="2"/>
+                <line x1="65" y1="120" x2="75" y2="130" stroke="#cbd5e1" stroke-width="2"/>
+
+                <!-- ذراع الرافعة المتحرك -->
+                <g class="crane-arm">
+                    <line x1="70" y1="45" x2="200" y2="45" stroke="#f59e0b" stroke-width="5" stroke-linecap="round"/>
+                    <line x1="70" y1="45" x2="40" y2="45" stroke="#f59e0b" stroke-width="5" stroke-linecap="round"/>
+                    <!-- الثقل الخلفي -->
+                    <rect x="35" y="40" width="15" height="12" fill="#475569" rx="2"/>
+                    
+                    <!-- حبل الرافعة والحمل -->
+                    <g class="hook-line">
+                        <line x1="160" y1="45" x2="160" y2="90" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3 3"/>
+                        <rect x="150" y="90" width="20" height="15" fill="#2563eb" rx="2"/>
+                    </g>
+                </g>
+
+                <!-- المبنى الذي يتم تشييده -->
+                <!-- الطابق الأول (مكتمل) -->
+                <rect x="180" y="140" width="70" height="60" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+                <rect x="195" y="155" width="15" height="20" fill="#2563eb" opacity="0.8" rx="2"/>
+                <rect x="220" y="155" width="15" height="20" fill="#2563eb" opacity="0.8" rx="2"/>
+
+                <!-- الطابق الثاني (جاري البناء) -->
+                <g class="building-block block-1">
+                    <rect x="180" y="90" width="70" height="50" fill="#ffffff" stroke="#2563eb" stroke-dasharray="4 4" stroke-width="2"/>
+                    <rect x="195" y="105" width="15" height="20" fill="#cbd5e1" rx="2"/>
+                </g>
+
+                <!-- الطابق الثالث (عمدان وهيكل) -->
+                <g class="building-block block-2">
+                    <line x1="185" y1="90" x2="185" y2="60" stroke="#f59e0b" stroke-width="3"/>
+                    <line x1="215" y1="90" x2="215" y2="60" stroke="#f59e0b" stroke-width="3"/>
+                    <line x1="245" y1="90" x2="245" y2="60" stroke="#f59e0b" stroke-width="3"/>
+                </g>
+            </svg>
         </div>
 
-        <nav class="flex-grow p-6 flex flex-col gap-4 font-semibold text-slate-700">
-            <a href="#hero" class="mobile-nav-link py-2.5 border-b border-slate-100 hover:text-seraj-accent flex items-center justify-between">
-                <span>الرئيسية</span>
-                <i class="fa-solid fa-chevron-left text-xs text-slate-400"></i>
-            </a>
-            <a href="#about" class="mobile-nav-link py-2.5 border-b border-slate-100 hover:text-seraj-accent flex items-center justify-between">
-                <span>عن سراج</span>
-                <i class="fa-solid fa-chevron-left text-xs text-slate-400"></i>
-            </a>
-            <a href="#services" class="mobile-nav-link py-2.5 border-b border-slate-100 hover:text-seraj-accent flex items-center justify-between">
-                <span>خدماتنا</span>
-                <i class="fa-solid fa-chevron-left text-xs text-slate-400"></i>
-            </a>
-            
-            <div class="mt-auto pt-6">
-                <button onclick="closeMobileMenu(); openModal();" class="w-full bg-seraj-accent hover:bg-blue-700 text-white py-3 rounded-xl font-bold text-center shadow-lg shadow-blue-500/20">
-                    تواصل معنا
-                </button>
-            </div>
-        </nav>
-    </aside>
+        <h1>منصتنا الجديدة <span>تحت الإنشاء</span></h1>
+        <p>نعمل حالياً على تطوير موقع شركة سراج لنقدم لكم تجربة استثنائية وباقات استشارية وتسويقية متكاملة. اترك بريدك الإلكتروني لنخبرك فور الانطلاق.</p>
 
-    <main class="flex-grow pt-24 sm:pt-28">
-
-        <section id="hero" class="py-6 sm:py-12 md:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                
-                <!-- Hero Content -->
-                <div class="lg:col-span-7 space-y-4 sm:space-y-6 text-center lg:text-right">
-                    <div class="inline-flex items-center gap-2 bg-seraj-lightGold text-amber-800 px-3 py-1 rounded-full text-xs sm:text-sm font-bold border border-amber-200">
-                        <i class="fa-solid fa-handshake text-seraj-gold"></i>
-                        <span>شريكك للتسويق والاستراتيجية</span>
-                    </div>
-
-                    <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-seraj-blue leading-snug sm:leading-tight">
-                        ندعم ونرعى الشركات <br class="hidden sm:inline">
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-seraj-accent to-blue-600">ذات الأفضلية والميزة التنافسية</span>
-                    </h1>
-
-                    <p class="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                        في شركة <strong class="text-seraj-blue font-bold">سراج</strong>، نعمل على دعم الشركات المتميزة في السوق من خلال تسويق حديث واستراتيجي يبرز نجاحها، ويساعدها على الوصول إلى جمهورها المستهدف بالشكل الأفضل.
-                    </p>
-
-                    <div class="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start pt-2">
-                        <button onclick="openModal()" class="w-full sm:w-auto bg-seraj-accent hover:bg-blue-700 text-white px-8 py-3.5 rounded-xl font-bold text-sm sm:text-base shadow-lg shadow-blue-500/20 transition-all duration-300 flex items-center justify-center gap-2">
-                            <span>ابدأ معنا اليوم</span>
-                            <i class="fa-solid fa-arrow-left text-xs sm:text-sm"></i>
-                        </button>
-                        <a href="#about" class="w-full sm:w-auto bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-8 py-3.5 rounded-xl font-bold text-sm sm:text-base transition-all duration-300 flex items-center justify-center gap-2">
-                            <span>اقرأ عن رؤيتنا</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Hero Card -->
-                <div class="lg:col-span-5 w-full">
-                    <div class="relative rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-slate-900 via-seraj-blue to-slate-800 p-6 sm:p-8 text-white border border-slate-700/50 flex flex-col items-center justify-center text-center">
-                        <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center mb-4 sm:mb-6 text-blue-400">
-                            <i class="fa-solid fa-handshake-simple text-2xl sm:text-3xl"></i>
-                        </div>
-                        
-                        <h3 class="text-xl sm:text-2xl font-extrabold tracking-wide text-white mb-2">
-                            Siraj Partnership
-                        </h3>
-                        
-                        <div class="w-10 h-1 bg-amber-500 rounded-full mb-3"></div>
-                        
-                        <h4 class="text-sm sm:text-lg font-bold text-slate-100 mb-1">
-                            شراكة قائمة على الثقة والنجاح
-                        </h4>
-                        
-                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xs">
-                            نسلط الضوء على تميزك ونقاط قوتك في السوق
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="about" class="py-12 sm:py-16 bg-white border-y border-slate-100">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6">
-                <div class="max-w-3xl mx-auto text-center space-y-3">
-                    <span class="text-seraj-accent font-bold text-xs sm:text-sm uppercase">فلسفتنا في العمل</span>
-                    <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-seraj-blue">لماذا نركز على الشركات المتميزة؟</h2>
-                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
-                        نؤمن بأن الشركات التي تقدم جودة حقيقية وميزة تنافسية تستحق أن تكون في مقدمة السوق. دورنا في <span class="font-bold text-seraj-blue">سراج</span> هو توفير الحلول التسويقية والتنفيذية التي تعكس هذا التميز وتضمن وصول رسالتكم بوضوح واحترافية.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mt-10">
-                    <div class="p-6 rounded-2xl bg-seraj-bg border border-slate-100 space-y-3">
-                        <div class="w-12 h-12 rounded-xl bg-blue-100 text-seraj-accent flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-bullseye"></i>
-                        </div>
-                        <h3 class="text-base sm:text-lg font-bold text-seraj-blue">تسويق استراتيجي</h3>
-                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                            خطط تسويقية مدروسة تناسب طبيعة نشاطك وتخاطب جمهورك بشكل مباشر وفعال.
-                        </p>
-                    </div>
-
-                    <div class="p-6 rounded-2xl bg-seraj-bg border border-slate-100 space-y-3">
-                        <div class="w-12 h-12 rounded-xl bg-amber-100 text-seraj-gold flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-award"></i>
-                        </div>
-                        <h3 class="text-base sm:text-lg font-bold text-seraj-blue">إبراز الميزة التنافسية</h3>
-                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                            تركيز الضوء على نقاط القوة التي تجعل شركتك الأفضل والأجدر بالاختيار.
-                        </p>
-                    </div>
-
-                    <div class="p-6 rounded-2xl bg-seraj-bg border border-slate-100 space-y-3">
-                        <div class="w-12 h-12 rounded-xl bg-slate-200 text-slate-800 flex items-center justify-center text-xl font-bold">
-                            <i class="fa-solid fa-handshake-angle"></i>
-                        </div>
-                        <h3 class="text-base sm:text-lg font-bold text-seraj-blue">رعاية الشراكة</h3>
-                        <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                            نعمل كفريق واحد مع شركتك لضمان استمرار التميز والنمو في السوق.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="services" class="py-12 sm:py-16 md:py-24 px-4 sm:px-6 max-w-7xl mx-auto">
-            <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-12 space-y-2">
-                <span class="text-seraj-accent font-bold text-xs sm:text-sm">كيف نخدمك؟</span>
-                <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-seraj-blue">خدمات تسويقية متكاملة</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:border-seraj-accent hover:shadow-lg transition-all duration-300">
-                    <div class="w-12 h-12 rounded-xl bg-blue-50 text-seraj-accent flex items-center justify-center text-xl mb-4">
-                        <i class="fa-solid fa-rectangle-ad"></i>
-                    </div>
-                    <h3 class="text-base sm:text-lg font-bold text-seraj-blue mb-2">إدارة الحملات التسويقية</h3>
-                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                        تخطيط وإدارة الحملات الإعلانية على المنصات المناسبة لتحقيق التواجد المطلوب.
-                    </p>
-                </div>
-
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:border-seraj-accent hover:shadow-lg transition-all duration-300">
-                    <div class="w-12 h-12 rounded-xl bg-amber-50 text-seraj-gold flex items-center justify-center text-xl mb-4">
-                        <i class="fa-solid fa-pen-nib"></i>
-                    </div>
-                    <h3 class="text-base sm:text-lg font-bold text-seraj-blue mb-2">تعزيز الهوية والرسالة</h3>
-                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                        صياغة المحتوى وإبراز الرسائل التسويقية التي تعكس جودة الخدمات والمنتجات.
-                    </p>
-                </div>
-
-                <div class="bg-white p-6 rounded-2xl border border-slate-200 hover:border-seraj-accent hover:shadow-lg transition-all duration-300">
-                    <div class="w-12 h-12 rounded-xl bg-blue-50 text-seraj-accent flex items-center justify-center text-xl mb-4">
-                        <i class="fa-solid fa-compass"></i>
-                    </div>
-                    <h3 class="text-base sm:text-lg font-bold text-seraj-blue mb-2">الاستشارات التسويقية</h3>
-                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                        تقديم التوجيه والرأي الاستشاري لتجاوز التحديات واقتناص الفرص في السوق.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-8 sm:py-12 px-4 sm:px-6 max-w-7xl mx-auto my-2">
-            <div class="bg-gradient-to-br from-seraj-blue to-slate-800 text-white rounded-3xl p-6 sm:p-10 shadow-xl text-center space-y-4">
-                <h2 class="text-lg sm:text-2xl md:text-3xl font-extrabold leading-snug">
-                    هل تمتلك شركتك الميزة التنافسية وترغب في الانطلاق؟
-                </h2>
-                <p class="text-slate-300 text-xs sm:text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-                    نحن هنا لنكون ذراعك التسويقي الاستراتيجي. تواصل معنا اليوم لمناقشة كيفية تسويق تميزك بشكل أفضل.
-                </p>
-                <div class="pt-2">
-                    <button onclick="openModal()" class="w-full sm:w-auto bg-seraj-gold hover:bg-amber-600 text-slate-900 font-extrabold text-sm sm:text-base px-8 py-3.5 rounded-xl shadow-md transition-all duration-300">
-                        تواصل مع فريق سراج
-                    </button>
-                </div>
-            </div>
-        </section>
-
+        <!-- نموذج الاشتراك -->
+        <form class="subscribe-form" id="notifyForm">
+            <input type="email" id="emailInput" placeholder="أدخل بريدك الإلكتروني..." required>
+            <button type="submit">أخبرني عند الجاهزية</button>
+        </form>
+        <div class="success-message" id="successMsg">شبراً لك! تم حفظ بريدك الإلكتروني وسنخبرك فور الإطلاق.</div>
     </main>
 
-    <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-right">
-                <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-seraj-accent to-seraj-gold flex items-center justify-center text-white font-bold">
-                        <i class="fa-solid fa-lightbulb text-sm"></i>
-                    </div>
-                    <span class="text-base font-bold text-white">شركة سراج للتسويق</span>
-                </div>
-
-                <p class="text-xs text-slate-500">
-                    جميع الحقوق محفوظة &copy; <span id="year"></span> شركة سراج
-                </p>
-            </div>
-        </div>
+    <!-- الفوتر -->
+    <footer>
+        جميع الحقوق محفوظة &copy; <span id="year"></span> شركة سراج للتسويق والاستشارات.
     </footer>
 
-    <!-- Modal -->
-    <div id="contact-modal" class="modal opacity-0 invisible fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
-        <div class="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
-            <button onclick="closeModal()" class="absolute top-4 left-4 text-slate-400 hover:text-slate-600 text-xl w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-
-            <div class="text-center mb-6">
-                <h3 class="text-lg sm:text-xl font-bold text-seraj-blue">تواصل مع شركة سراج</h3>
-                <p class="text-slate-500 text-xs mt-1">قم بتعبئة النموذج وسنقوم بالتواصل معك قريبًا</p>
-            </div>
-
-            <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
-                <div>
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">الاسم / اسم الشركة</label>
-                    <input type="text" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-seraj-accent text-sm" placeholder="أدخل اسمك أو اسم الشركة">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">رقم التواصل</label>
-                    <input type="tel" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-seraj-accent text-sm" placeholder="أدخل رقم الهاتف أو الواتساب">
-                </div>
-
-                <div>
-                    <label class="block text-xs font-semibold text-slate-700 mb-1">تفاصيل إضافية (اختياري)</label>
-                    <textarea rows="3" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-seraj-accent text-sm" placeholder="اكتب نبذة مختصرة عن نشاط شركتك"></textarea>
-                </div>
-
-                <button type="submit" class="w-full bg-seraj-accent hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition-colors shadow-md text-sm">
-                    إرسال البيانات
-                </button>
-            </form>
-
-            <div id="form-success" class="hidden text-center py-6 space-y-3">
-                <div class="w-12 h-12 rounded-full bg-green-100 text-green-600 flex items-center justify-center mx-auto text-xl">
-                    <i class="fa-solid fa-check"></i>
-                </div>
-                <h4 class="text-base font-bold text-slate-800">تم استلام طلبك بنجاح!</h4>
-                <p class="text-slate-500 text-xs">شكرًا لتواصلك مع سراج. سيتواصل معك أحد مستشارينا في أقرب وقت ممكن.</p>
-                <button onclick="closeModal()" class="mt-2 text-xs text-seraj-accent font-bold hover:underline">إغلاق النافذة</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Script Fix -->
+    <!-- JavaScript -->
     <script>
+        // تحديث السنة تلقائياً
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Mobile Menu Script (Sidebar Pattern)
-        const openBtn = document.getElementById('open-menu-btn');
-        const closeBtn = document.getElementById('close-menu-btn');
-        const sidebar = document.getElementById('mobile-sidebar');
-        const backdrop = document.getElementById('mobile-backdrop');
-        const navLinks = document.querySelectorAll('.mobile-nav-link');
+        // التفاعل مع نموذج البريد
+        const form = document.getElementById('notifyForm');
+        const successMsg = document.getElementById('successMsg');
 
-        function openMobileMenu() {
-            sidebar.classList.remove('closed');
-            sidebar.classList.add('open');
-            backdrop.classList.remove('hidden');
-            setTimeout(() => {
-                backdrop.classList.remove('opacity-0');
-            }, 10);
-            document.body.style.overflow = 'hidden'; // منع التمرير أثناء فتح القائمة
-        }
-
-        function closeMobileMenu() {
-            sidebar.classList.remove('open');
-            sidebar.classList.add('closed');
-            backdrop.classList.add('opacity-0');
-            setTimeout(() => {
-                backdrop.classList.add('hidden');
-            }, 300);
-            document.body.style.overflow = '';
-        }
-
-        openBtn.addEventListener('click', openMobileMenu);
-        closeBtn.addEventListener('click', closeMobileMenu);
-        backdrop.addEventListener('click', closeMobileMenu);
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', closeMobileMenu);
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // إخفاء النموذج وإظهار رسالة النجاح
+            form.style.display = 'none';
+            successMsg.style.display = 'block';
         });
-
-        // Modal Logic
-        const modal = document.getElementById('contact-modal');
-        const contactForm = document.getElementById('contact-form');
-        const formSuccess = document.getElementById('form-success');
-
-        function openModal() {
-            modal.classList.add('active');
-            contactForm.classList.remove('hidden');
-            formSuccess.classList.add('hidden');
-            contactForm.reset();
-        }
-
-        function closeModal() {
-            modal.classList.remove('active');
-        }
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            contactForm.classList.add('hidden');
-            formSuccess.classList.remove('hidden');
-        }
     </script>
 </body>
 </html>
